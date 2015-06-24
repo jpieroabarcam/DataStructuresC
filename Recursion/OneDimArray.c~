@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <math.h>
+#include <time.h>
+#include <stdlib.h>
+
+int main() {
+	int n, *lista, i;
+
+	srand(time(0));
+
+	scanf("%d",&n);
+
+	if (n < 1) {
+		fprintf(stderr, "no puede una lista negativa ni tamanho cero \n");
+		exit(EXIT_FAILURE);
+
+	}
+
+	lista = (int *)malloc(n * sizeof(int));
+
+	for (i = 0; i < n; i++) {
+		*(lista + i)  = (rand() % 25) + 1;
+		printf("num: %d \n",*(lista + i));
+	}
+	
+	free(lista);
+
+	return 0;
+}
